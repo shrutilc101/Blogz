@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Build-a-blog</h2>
-<h3>Older Posts</h3>
+<h1>Build-a-Blog</h1>
+<h4>Older Blogs</h4>
 
 
     <ol>
-        {% for post in posts %}
+        {% for blog in blogs %}
         <li>
             <h2><a href="./blog?id={{blog.id}}">{{blog.title}}</a></h2>
             <p>{{blog.post}}</p>
         </li>
         {% endfor %}
-    </ol>>
+    </ol>
     
 
      <p>Stay tuned for more blogs</p>
