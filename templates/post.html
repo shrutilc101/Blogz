@@ -8,6 +8,8 @@
 
             <p>{{blog.post}}</p>
 
+            <p>Written by:<a href="/blog?user={{blog.author_id}}">{{blog.author.username}}</a></p>
+
     </div>
 
 {% endblock %}
