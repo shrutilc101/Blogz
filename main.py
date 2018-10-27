@@ -131,9 +131,9 @@ def display_blog():
     if "user" in request.args:
         user_id = request.args.get("user")
         user = User.query.get(user_id)
+        user_name = user.username
         user_blogs = Blog.query.filter_by(author=user).all()
-        
-        return render_template("singleUser.html", page_title=user.username, user_blogs=user_blogs)
+        return render_template("singleUser.html", username=user_name, user_blogs=user_blogs)
     a_blog = request.args.get('id')
     if(a_blog):
         a_post = Blog.query.get(a_blog)
@@ -170,7 +170,7 @@ def newpost():
 
         else:
             new_blog = Blog(blog_title,blog_post,author)
-            blog = Blog.query.filter_by(author=author)
+            post = Blog.query.filter_by(author=author)
             db.session.add(new_blog)
             db.session.commit()
             post_link = "/blog?id=" + str(new_blog.id)
